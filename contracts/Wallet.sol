@@ -22,6 +22,19 @@ contract Wallet {
     Transfer[] public transfers;
 
     // define records who approves what
+    mapping(address => mapping(uint => bool)) public approvals;
+
+    // modifier to check owner from approvers list
+    modifier onlyApprover () {
+        bool isApprover = false;
+        for (uint i = 0; i < approvers.length; i++) {
+            if (msg.sender == approvers[i]) {
+                isApprover = true;
+            }
+        }
+        require(isApprover == true, "Only approver allowed.");
+        _;
+    }
 
     // contract constructor
     constructor(address[] memory _approvers, uint _quorum) public {
@@ -49,4 +62,23 @@ contract Wallet {
     }
 
     // function to approve a transfer 
+    function approveTransfer(uint _id) external {
+        // check status of the transfer
+        require(transfers[_id].sent == false, "Transfer has already been sent.");
+        require(approvals[msg.sender][_id] == false, "Cannot approve transfer again.");
+
+        approvals[msg.sender][_id] = true;
+        transfers[_id].approvals++;
+
+        if (transfers[_id].approvals >= quorum) {
+            transfers[_id].sent = true;
+            address payable to = transfers[_id].to;
+            uint amount = transfers[_id].amount;
+            to.transfer(amount);
+        }
+    }
+
+    // function to receive ether 
+    // todo: what the hell this function is doing?
+    receive() external payable {}
 }
