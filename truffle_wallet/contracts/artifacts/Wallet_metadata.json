@@ -208,7 +208,17 @@
 		"devdoc": {
 			"author": "phuquyng",
 			"details": "todo",
-			"methods": {},
+			"methods": {
+				"approveTransfer(uint256)": {
+					"details": "approve a transfer \r"
+				},
+				"constructor": {
+					"details": "Set contract approvers and quorum"
+				},
+				"createTransfer(uint256,address)": {
+					"details": "create a new transfer"
+				}
+			},
 			"title": "Manage the multi signature wallet"
 		},
 		"userdoc": {
@@ -232,10 +242,10 @@
 	},
 	"sources": {
 		"blockchain_app/multisig_wallet/truffle_wallet/contracts/Wallet.sol": {
-			"keccak256": "0x92134547991bc178d9bb14d5920e3e00763f8b6036daaf1855e4e8ccecdfe393",
+			"keccak256": "0x12f517ae0072a09d89f539e6551eef171047d0fc6ea14e0a113565c48a407153",
 			"urls": [
-				"bzz-raw://16fa99c0af3d7532efe84ddfebcd0e31e1e0ce215fec3623baba41e47d199610",
-				"dweb:/ipfs/QmekjS8bAFKWUEYipFicVCq7SV1aLMTCTwESyEwqzG74qe"
+				"bzz-raw://a15689cd9342961d4493778a5cb4b8f7f5887fcae5e75460633dba3b0dbabc88",
+				"dweb:/ipfs/QmTHsVBruTUE36zWpGcRuwpmbyMdxDYMwLMMLJjq6ymZxr"
 			]
 		}
 	},

@@ -24,7 +24,7 @@ contract Wallet {
     // define records who approves what
     mapping(address => mapping(uint => bool)) public approvals;
 
-    // modifier to check owner from approvers list
+    // modifier to check if caller is in approvers list
     modifier onlyApprover () {
         bool isApprover = false;
         for (uint i = 0; i < approvers.length; i++) {
@@ -36,7 +36,9 @@ contract Wallet {
         _;
     }
 
-    // contract constructor
+    /**
+     * @dev Set contract approvers and quorum
+    */
     constructor(address[] memory _approvers, uint _quorum) public {
         approvers = _approvers;
         quorum = _quorum;
@@ -50,7 +52,9 @@ contract Wallet {
         return transfers;
     }
 
-    // function to create a new transfer
+    /**
+     * @dev create a new transfer
+    */
     function createTransfer(uint amount, address payable to) external onlyApprover {
         transfers.push(Transfer(
             transfers.length,
@@ -61,7 +65,10 @@ contract Wallet {
         ));
     }
 
-    // function to approve a transfer 
+    /**
+     * @dev approve a transfer
+     * 
+    */
     function approveTransfer(uint _id) external onlyApprover {
         // check status of the transfer
         require(transfers[_id].sent == false, "Transfer has already been sent.");
