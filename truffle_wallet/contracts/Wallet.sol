@@ -51,7 +51,7 @@ contract Wallet {
     }
 
     // function to create a new transfer
-    function createTransfer(uint amount, address payable to) external {
+    function createTransfer(uint amount, address payable to) external onlyApprover {
         transfers.push(Transfer(
             transfers.length,
             amount,
@@ -62,7 +62,7 @@ contract Wallet {
     }
 
     // function to approve a transfer 
-    function approveTransfer(uint _id) external {
+    function approveTransfer(uint _id) external onlyApprover {
         // check status of the transfer
         require(transfers[_id].sent == false, "Transfer has already been sent.");
         require(approvals[msg.sender][_id] == false, "Cannot approve transfer again.");

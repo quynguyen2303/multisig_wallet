@@ -232,10 +232,10 @@
 	},
 	"sources": {
 		"blockchain_app/multisig_wallet/truffle_wallet/contracts/Wallet.sol": {
-			"keccak256": "0x2c6996cd0f52202d88fe74c2f0198016fc6e2e8eff9d98779f8d53632aec77af",
+			"keccak256": "0x92134547991bc178d9bb14d5920e3e00763f8b6036daaf1855e4e8ccecdfe393",
 			"urls": [
-				"bzz-raw://221dbeab9067e6cce5b2833920741abd452654efdbb60b909306c7dd78fd4e4e",
-				"dweb:/ipfs/QmTtCvGEtEknQGvEo1Y3jF4HaK6fpxjEzerWkitnEUVsTp"
+				"bzz-raw://16fa99c0af3d7532efe84ddfebcd0e31e1e0ce215fec3623baba41e47d199610",
+				"dweb:/ipfs/QmekjS8bAFKWUEYipFicVCq7SV1aLMTCTwESyEwqzG74qe"
 			]
 		}
 	},
