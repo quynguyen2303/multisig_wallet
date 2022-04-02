@@ -12,7 +12,7 @@ contract("Wallet", (accounts) =>{
             to: wallet.address, 
             value: 1000});
     });
-    // Test for approvers list and quorum 
+    // Test for initialization of approvers list and quorum 
     // BN.js
     // toNumber() vs toString()
     it("Should have correct number of approvers and quorum", async () => {
@@ -25,7 +25,7 @@ contract("Wallet", (accounts) =>{
         assert(quorum.toNumber() == 2);
     });
 
-    // Test for Transfer
+    // Test for createTransfer()
     // Happy path
     it("Should create a transfer", async () => {
         await wallet.createTransfer(100, accounts[3], {from: accounts[0]});
